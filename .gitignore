@@ -1,0 +1,9 @@
+vendor/
+logs.txt
+entities.db*
+artists.csv
+vacuum.sqlite
+newhell-web*.json
+/bin/
+coverage*
+*__debug_bin*
