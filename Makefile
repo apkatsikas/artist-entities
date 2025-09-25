@@ -14,20 +14,8 @@ format:
 	go fmt ./...
 vet:
 	go vet
-tidy:
-	go mod tidy
-clean:
-	go ​clean -modcache
-find-process:
-	pgrep entities
-kill-process:
-	kill 12345678
-find-go-symlink:
-	readlink -f /usr/bin/go
 mocks:
 	mockery
-digital-ocean:
-	doctl compute ssh vcp-nyc
 coverage:
 	@go tool cover -html coverage.out -o coverage.html
 	explorer.exe coverage.html
