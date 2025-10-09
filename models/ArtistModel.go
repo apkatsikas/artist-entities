@@ -59,20 +59,3 @@ func ValidatedArtist(artistName string) (*Artist, error) {
 	artist.Name = artistName
 	return &artist, nil
 }
-
-// func (rules *ArtistRules) RandomOffset(count uint) uint {
-// 	min := 1
-// 	countInt := int(count)
-
-// 	if countInt == min {
-// 		return uint(min)
-// 	}
-
-// 	seed := time.Now().UnixNano()
-// 	r := rand.New(rand.NewSource(seed))
-
-// 	maxMinusMin := countInt - min
-
-// 	offset := r.Intn(maxMinusMin) + min
-// 	return uint(offset)
-// }
