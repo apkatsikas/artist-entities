@@ -39,14 +39,13 @@ func (as *ArtistService) GetRandom() (*models.Artist, error) {
 }
 
 func (as *ArtistService) Create(artistName string) (*models.Artist, error) {
-	// Clean
-	artistName, err := as.Rules.CleanArtistName(artistName)
+	artist, err := models.ValidatedArtist(artistName)
 	if err != nil {
 		return nil, err
 	}
 
 	// Write to repository
-	artist, err := as.ArtistRepository.Create(artistName)
+	artist, err = as.ArtistRepository.Create(artist)
 	if err != nil {
 		return nil, err
 	}
