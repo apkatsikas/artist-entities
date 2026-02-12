@@ -61,14 +61,20 @@ type IAdminRepository_CreateBackup_Call struct {
 }
 
 // CreateBackup is a helper method to define mock.On call
-//   - file
+//   - file string
 func (_e *IAdminRepository_Expecter) CreateBackup(file interface{}) *IAdminRepository_CreateBackup_Call {
 	return &IAdminRepository_CreateBackup_Call{Call: _e.mock.On("CreateBackup", file)}
 }
 
 func (_c *IAdminRepository_CreateBackup_Call) Run(run func(file string)) *IAdminRepository_CreateBackup_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -133,14 +139,20 @@ type IAdminRules_FileToDelete_Call struct {
 }
 
 // FileToDelete is a helper method to define mock.On call
-//   - files
+//   - files []storageclient.BackupFile
 func (_e *IAdminRules_Expecter) FileToDelete(files interface{}) *IAdminRules_FileToDelete_Call {
 	return &IAdminRules_FileToDelete_Call{Call: _e.mock.On("FileToDelete", files)}
 }
 
 func (_c *IAdminRules_FileToDelete_Call) Run(run func(files []storageclient.BackupFile)) *IAdminRules_FileToDelete_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].([]storageclient.BackupFile))
+		var arg0 []storageclient.BackupFile
+		if args[0] != nil {
+			arg0 = args[0].([]storageclient.BackupFile)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -183,8 +195,8 @@ func (_m *IArtistRepository) EXPECT() *IArtistRepository_Expecter {
 }
 
 // Create provides a mock function for the type IArtistRepository
-func (_mock *IArtistRepository) Create(name string) (*models.Artist, error) {
-	ret := _mock.Called(name)
+func (_mock *IArtistRepository) Create(artist *models.Artist) (*models.Artist, error) {
+	ret := _mock.Called(artist)
 
 	if len(ret) == 0 {
 		panic("no return value specified for Create")
@@ -192,18 +204,18 @@ func (_mock *IArtistRepository) Create(name string) (*models.Artist, error) {
 
 	var r0 *models.Artist
 	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(string) (*models.Artist, error)); ok {
-		return returnFunc(name)
+	if returnFunc, ok := ret.Get(0).(func(*models.Artist) (*models.Artist, error)); ok {
+		return returnFunc(artist)
 	}
-	if returnFunc, ok := ret.Get(0).(func(string) *models.Artist); ok {
-		r0 = returnFunc(name)
+	if returnFunc, ok := ret.Get(0).(func(*models.Artist) *models.Artist); ok {
+		r0 = returnFunc(artist)
 	} else {
 		if ret.Get(0) != nil {
 			r0 = ret.Get(0).(*models.Artist)
 		}
 	}
-	if returnFunc, ok := ret.Get(1).(func(string) error); ok {
-		r1 = returnFunc(name)
+	if returnFunc, ok := ret.Get(1).(func(*models.Artist) error); ok {
+		r1 = returnFunc(artist)
 	} else {
 		r1 = ret.Error(1)
 	}
@@ -216,24 +228,30 @@ type IArtistRepository_Create_Call struct {
 }
 
 // Create is a helper method to define mock.On call
-//   - name
-func (_e *IArtistRepository_Expecter) Create(name interface{}) *IArtistRepository_Create_Call {
-	return &IArtistRepository_Create_Call{Call: _e.mock.On("Create", name)}
+//   - artist *models.Artist
+func (_e *IArtistRepository_Expecter) Create(artist interface{}) *IArtistRepository_Create_Call {
+	return &IArtistRepository_Create_Call{Call: _e.mock.On("Create", artist)}
 }
 
-func (_c *IArtistRepository_Create_Call) Run(run func(name string)) *IArtistRepository_Create_Call {
+func (_c *IArtistRepository_Create_Call) Run(run func(artist *models.Artist)) *IArtistRepository_Create_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string))
+		var arg0 *models.Artist
+		if args[0] != nil {
+			arg0 = args[0].(*models.Artist)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
 
-func (_c *IArtistRepository_Create_Call) Return(artist *models.Artist, err error) *IArtistRepository_Create_Call {
-	_c.Call.Return(artist, err)
+func (_c *IArtistRepository_Create_Call) Return(artist1 *models.Artist, err error) *IArtistRepository_Create_Call {
+	_c.Call.Return(artist1, err)
 	return _c
 }
 
-func (_c *IArtistRepository_Create_Call) RunAndReturn(run func(name string) (*models.Artist, error)) *IArtistRepository_Create_Call {
+func (_c *IArtistRepository_Create_Call) RunAndReturn(run func(artist *models.Artist) (*models.Artist, error)) *IArtistRepository_Create_Call {
 	_c.Call.Return(run)
 	return _c
 }
@@ -272,14 +290,20 @@ type IArtistRepository_Get_Call struct {
 }
 
 // Get is a helper method to define mock.On call
-//   - id
+//   - id uint
 func (_e *IArtistRepository_Expecter) Get(id interface{}) *IArtistRepository_Get_Call {
 	return &IArtistRepository_Get_Call{Call: _e.mock.On("Get", id)}
 }
 
 func (_c *IArtistRepository_Get_Call) Run(run func(id uint)) *IArtistRepository_Get_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(uint))
+		var arg0 uint
+		if args[0] != nil {
+			arg0 = args[0].(uint)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -328,14 +352,20 @@ type IArtistRepository_GetByOffset_Call struct {
 }
 
 // GetByOffset is a helper method to define mock.On call
-//   - offset
+//   - offset uint
 func (_e *IArtistRepository_Expecter) GetByOffset(offset interface{}) *IArtistRepository_GetByOffset_Call {
 	return &IArtistRepository_GetByOffset_Call{Call: _e.mock.On("GetByOffset", offset)}
 }
 
 func (_c *IArtistRepository_GetByOffset_Call) Run(run func(offset uint)) *IArtistRepository_GetByOffset_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(uint))
+		var arg0 uint
+		if args[0] != nil {
+			arg0 = args[0].(uint)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -474,60 +504,6 @@ func (_m *IArtistRules) EXPECT() *IArtistRules_Expecter {
 	return &IArtistRules_Expecter{mock: &_m.Mock}
 }
 
-// CleanArtistName provides a mock function for the type IArtistRules
-func (_mock *IArtistRules) CleanArtistName(s string) (string, error) {
-	ret := _mock.Called(s)
-
-	if len(ret) == 0 {
-		panic("no return value specified for CleanArtistName")
-	}
-
-	var r0 string
-	var r1 error
-	if returnFunc, ok := ret.Get(0).(func(string) (string, error)); ok {
-		return returnFunc(s)
-	}
-	if returnFunc, ok := ret.Get(0).(func(string) string); ok {
-		r0 = returnFunc(s)
-	} else {
-		r0 = ret.Get(0).(string)
-	}
-	if returnFunc, ok := ret.Get(1).(func(string) error); ok {
-		r1 = returnFunc(s)
-	} else {
-		r1 = ret.Error(1)
-	}
-	return r0, r1
-}
-
-// IArtistRules_CleanArtistName_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CleanArtistName'
-type IArtistRules_CleanArtistName_Call struct {
-	*mock.Call
-}
-
-// CleanArtistName is a helper method to define mock.On call
-//   - s
-func (_e *IArtistRules_Expecter) CleanArtistName(s interface{}) *IArtistRules_CleanArtistName_Call {
-	return &IArtistRules_CleanArtistName_Call{Call: _e.mock.On("CleanArtistName", s)}
-}
-
-func (_c *IArtistRules_CleanArtistName_Call) Run(run func(s string)) *IArtistRules_CleanArtistName_Call {
-	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string))
-	})
-	return _c
-}
-
-func (_c *IArtistRules_CleanArtistName_Call) Return(s1 string, err error) *IArtistRules_CleanArtistName_Call {
-	_c.Call.Return(s1, err)
-	return _c
-}
-
-func (_c *IArtistRules_CleanArtistName_Call) RunAndReturn(run func(s string) (string, error)) *IArtistRules_CleanArtistName_Call {
-	_c.Call.Return(run)
-	return _c
-}
-
 // RandomOffset provides a mock function for the type IArtistRules
 func (_mock *IArtistRules) RandomOffset(count uint) uint {
 	ret := _mock.Called(count)
@@ -551,14 +527,20 @@ type IArtistRules_RandomOffset_Call struct {
 }
 
 // RandomOffset is a helper method to define mock.On call
-//   - count
+//   - count uint
 func (_e *IArtistRules_Expecter) RandomOffset(count interface{}) *IArtistRules_RandomOffset_Call {
 	return &IArtistRules_RandomOffset_Call{Call: _e.mock.On("RandomOffset", count)}
 }
 
 func (_c *IArtistRules_RandomOffset_Call) Run(run func(count uint)) *IArtistRules_RandomOffset_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(uint))
+		var arg0 uint
+		if args[0] != nil {
+			arg0 = args[0].(uint)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -634,14 +616,20 @@ type IArtistService_Create_Call struct {
 }
 
 // Create is a helper method to define mock.On call
-//   - artistName
+//   - artistName string
 func (_e *IArtistService_Expecter) Create(artistName interface{}) *IArtistService_Create_Call {
 	return &IArtistService_Create_Call{Call: _e.mock.On("Create", artistName)}
 }
 
 func (_c *IArtistService_Create_Call) Run(run func(artistName string)) *IArtistService_Create_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -690,14 +678,20 @@ type IArtistService_Get_Call struct {
 }
 
 // Get is a helper method to define mock.On call
-//   - id
+//   - id uint
 func (_e *IArtistService_Expecter) Get(id interface{}) *IArtistService_Get_Call {
 	return &IArtistService_Get_Call{Call: _e.mock.On("Get", id)}
 }
 
 func (_c *IArtistService_Get_Call) Run(run func(id uint)) *IArtistService_Get_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(uint))
+		var arg0 uint
+		if args[0] != nil {
+			arg0 = args[0].(uint)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -826,15 +820,26 @@ type IAuthService_GenerateJWT_Call struct {
 }
 
 // GenerateJWT is a helper method to define mock.On call
-//   - name
-//   - password
+//   - name string
+//   - password string
 func (_e *IAuthService_Expecter) GenerateJWT(name interface{}, password interface{}) *IAuthService_GenerateJWT_Call {
 	return &IAuthService_GenerateJWT_Call{Call: _e.mock.On("GenerateJWT", name, password)}
 }
 
 func (_c *IAuthService_GenerateJWT_Call) Run(run func(name string, password string)) *IAuthService_GenerateJWT_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string), args[1].(string))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		run(
+			arg0,
+			arg1,
+		)
 	})
 	return _c
 }
@@ -872,14 +877,20 @@ type IAuthService_IsAuthorized_Call struct {
 }
 
 // IsAuthorized is a helper method to define mock.On call
-//   - token
+//   - token string
 func (_e *IAuthService_Expecter) IsAuthorized(token interface{}) *IAuthService_IsAuthorized_Call {
 	return &IAuthService_IsAuthorized_Call{Call: _e.mock.On("IsAuthorized", token)}
 }
 
 func (_c *IAuthService_IsAuthorized_Call) Run(run func(token string)) *IAuthService_IsAuthorized_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -1017,14 +1028,20 @@ type IFileUtil_DeleteIfExists_Call struct {
 }
 
 // DeleteIfExists is a helper method to define mock.On call
-//   - file
+//   - file string
 func (_e *IFileUtil_Expecter) DeleteIfExists(file interface{}) *IFileUtil_DeleteIfExists_Call {
 	return &IFileUtil_DeleteIfExists_Call{Call: _e.mock.On("DeleteIfExists", file)}
 }
 
 func (_c *IFileUtil_DeleteIfExists_Call) Run(run func(file string)) *IFileUtil_DeleteIfExists_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -1089,14 +1106,20 @@ type IStorageClient_DeleteFile_Call struct {
 }
 
 // DeleteFile is a helper method to define mock.On call
-//   - object
+//   - object string
 func (_e *IStorageClient_Expecter) DeleteFile(object interface{}) *IStorageClient_DeleteFile_Call {
 	return &IStorageClient_DeleteFile_Call{Call: _e.mock.On("DeleteFile", object)}
 }
 
 func (_c *IStorageClient_DeleteFile_Call) Run(run func(object string)) *IStorageClient_DeleteFile_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }
@@ -1189,15 +1212,26 @@ type IStorageClient_UploadFile_Call struct {
 }
 
 // UploadFile is a helper method to define mock.On call
-//   - path
-//   - destObject
+//   - path string
+//   - destObject string
 func (_e *IStorageClient_Expecter) UploadFile(path interface{}, destObject interface{}) *IStorageClient_UploadFile_Call {
 	return &IStorageClient_UploadFile_Call{Call: _e.mock.On("UploadFile", path, destObject)}
 }
 
 func (_c *IStorageClient_UploadFile_Call) Run(run func(path string, destObject string)) *IStorageClient_UploadFile_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string), args[1].(string))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		run(
+			arg0,
+			arg1,
+		)
 	})
 	return _c
 }
@@ -1273,15 +1307,26 @@ type IUserRepository_Create_Call struct {
 }
 
 // Create is a helper method to define mock.On call
-//   - name
-//   - password
+//   - name string
+//   - password string
 func (_e *IUserRepository_Expecter) Create(name interface{}, password interface{}) *IUserRepository_Create_Call {
 	return &IUserRepository_Create_Call{Call: _e.mock.On("Create", name, password)}
 }
 
 func (_c *IUserRepository_Create_Call) Run(run func(name string, password string)) *IUserRepository_Create_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string), args[1].(string))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		var arg1 string
+		if args[1] != nil {
+			arg1 = args[1].(string)
+		}
+		run(
+			arg0,
+			arg1,
+		)
 	})
 	return _c
 }
@@ -1330,14 +1375,20 @@ type IUserRepository_Get_Call struct {
 }
 
 // Get is a helper method to define mock.On call
-//   - name
+//   - name string
 func (_e *IUserRepository_Expecter) Get(name interface{}) *IUserRepository_Get_Call {
 	return &IUserRepository_Get_Call{Call: _e.mock.On("Get", name)}
 }
 
 func (_c *IUserRepository_Get_Call) Run(run func(name string)) *IUserRepository_Get_Call {
 	_c.Call.Run(func(args mock.Arguments) {
-		run(args[0].(string))
+		var arg0 string
+		if args[0] != nil {
+			arg0 = args[0].(string)
+		}
+		run(
+			arg0,
+		)
 	})
 	return _c
 }

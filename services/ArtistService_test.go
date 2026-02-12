@@ -93,7 +93,6 @@ func TestCreateArtist(t *testing.T) {
 
 	// Setup mocks
 	mocks := artistServiceReqMocks(t)
-	mocks.IArtistRules.EXPECT().CleanArtistName(artistName).Return(artistName, nil)
 	mocks.IArtistRepository.EXPECT().Create(artistName).Return(&artist, nil)
 
 	// Inject service
@@ -118,7 +117,6 @@ func TestCreateArtistExists(t *testing.T) {
 
 	// Setup mocks
 	mocks := artistServiceReqMocks(t)
-	mocks.IArtistRules.EXPECT().CleanArtistName(artistName).Return(artistName, nil)
 	mocks.IArtistRepository.EXPECT().Create(artistName).Return(nil, expectedError)
 
 	// Inject service
@@ -143,7 +141,6 @@ func TestCreateArtistRulesFail(t *testing.T) {
 
 	// Setup mocks
 	mocks := artistServiceReqMocks(t)
-	mocks.IArtistRules.EXPECT().CleanArtistName(artistName).Return("", expectedError)
 
 	// Inject service
 	artistService := injectedArtistService(mocks)
